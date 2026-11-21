@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>삼뱀일룡 마음상점</title>
+<meta name="description" content="생년월일만 넣으면 3초. 가입 없이 보는 내 사주 캐릭터, 가족 캐릭터 지도까지 무료.">
+<!-- 카카오톡·문자로 링크를 보냈을 때 뜨는 미리 보기 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="나는 어떤 사주 캐릭터일까? · 삼뱀일룡 마음상점">
+<meta property="og:description" content="생년월일만 넣으면 3초. 가입 없이, 우리 가족 캐릭터까지 무료로.">
+<meta property="og:image" content="og.png"><!-- 올릴 때 1200×630 그림을 같은 폴더에 두고 전체 주소로 바꾸기 -->
+<style>
+:root{--bg:#f6f1e9;--card:#fffdf8;--ink:#2a2420;--sub:#6d6259;--line:#e6dccd;--acc:#b5482f;--acc-ink:#fff;--deep:#2f4f46;--soft:#f3e3d3;--kakao:#fee500;--max:720px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1815;--card:#25211d;--ink:#f2ece4;--sub:#b5aa9d;--line:#3a322b;--acc:#e0795c;--acc-ink:#1b1815;--deep:#86bfae;--soft:#3a2d24}}
+:root[data-theme="dark"]{--bg:#1b1815;--card:#25211d;--ink:#f2ece4;--sub:#b5aa9d;--line:#3a322b;--acc:#e0795c;--acc-ink:#1b1815;--deep:#86bfae;--soft:#3a2d24}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.6;padding-bottom:84px}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.topbar{background:var(--deep);color:#fff;text-align:center;font-size:13px;padding:8px 12px}
+header{padding:18px 0 4px;display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-size:22px}
+header b{font-size:17px}
+header span{display:block;font-size:12px;color:var(--sub)}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+h1{font-size:30px;line-height:1.3;margin:12px 0 10px;letter-spacing:-.5px}
+h2{font-size:22px;margin:0 0 6px;letter-spacing:-.3px}
+.lead{font-size:16px;color:var(--sub);margin:0}
+.kicker{font-size:13px;font-weight:700;color:var(--acc)}
+.flow{display:flex;align-items:center;gap:6px;margin:22px 0;flex-wrap:wrap}
+.flow div{flex:1;min-width:90px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center;font-size:13px}
+.flow div i{font-style:normal;display:block;font-size:24px}
+.flow em{font-style:normal;color:var(--sub)}
+.ctas{display:grid;gap:8px;grid-template-columns:1fr 1fr 1fr}
+.btn{display:block;text-align:center;padding:13px 8px;border-radius:12px;font-weight:700;font-size:14px;text-decoration:none;border:1px solid var(--line);background:var(--card);color:var(--ink);font-family:inherit;cursor:pointer;width:100%}
+.btn.main{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.btn.kakao{background:var(--kakao);color:#191919;border-color:var(--kakao)}
+.cards{display:grid;gap:10px;grid-template-columns:repeat(3,1fr);margin-top:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.card i{font-style:normal;font-size:26px}
+.card b{display:block;margin:6px 0 2px}
+.card p{margin:0;font-size:14px;color:var(--sub)}
+.card .won{font-size:20px;font-weight:800;color:var(--acc);margin-top:6px;display:block}
+.why{display:grid;gap:10px;margin-top:16px}
+.why div{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.why i{font-style:normal;font-size:24px;flex:none}
+.why b{display:block}
+.why p{margin:0;font-size:14px;color:var(--sub)}
+.finder{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:16px}
+.row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.row input[type=text]{flex:1.1;min-width:0}
+.row input[type=date]{flex:1.4;min-width:0}
+.row input{padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-size:15px;font-family:inherit}
+.row .x{flex:none;width:38px;padding:10px 0}
+.small{font-size:12px;color:var(--sub)}
+.results{display:grid;gap:10px;margin-top:14px}
+.res{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--bg)}
+.res .who{font-size:13px;color:var(--sub)}
+.res b{display:block;font-size:18px;margin:2px 0}
+.res q{display:block;font-size:14px;quotes:none}
+.share{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.chars{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px}
+.char{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 12px;font-size:14px;cursor:pointer;text-align:left;color:var(--ink);font-family:inherit}
+.char small{display:block;color:var(--sub);font-size:12px}
+.char[aria-pressed="true"]{border-color:var(--acc);box-shadow:0 0 0 2px var(--soft)}
+.peek{margin-top:12px;background:var(--card);border-left:4px solid var(--deep);border-radius:10px;padding:14px 16px;font-size:15px;min-height:72px}
+.steps{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.steps li{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.steps span{flex:none;width:30px;height:30px;border-radius:50%;background:var(--deep);color:#fff;display:grid;place-items:center;font-weight:800}
+.steps b{display:block}
+.steps p{margin:0;font-size:14px;color:var(--sub)}
+.price{display:grid;gap:10px;margin-top:16px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.plan.hot{border:2px solid var(--acc)}
+.plan b{display:block;font-size:16px}
+.plan p{margin:2px 0 0;font-size:13px;color:var(--sub)}
+.plan .won{font-size:22px;font-weight:800;white-space:nowrap}
+.yt{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px;text-decoration:none}
+.yt i{font-style:normal;font-size:30px}
+footer{padding:28px 0;font-size:12px;color:var(--sub)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.bar .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:0}
+.sns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}
+.sns a{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;text-decoration:none;font-size:14px}
+.sns a i{font-style:normal;font-size:22px}
+.sns a small{display:block;color:var(--sub);font-size:12px}
+.rp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:10px}
+.rp .t{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.rp b{font-size:16px}
+.rp p{margin:4px 0 0;font-size:13px;color:var(--sub)}
+.rp .pr{text-align:right;white-space:nowrap}
+.rp .pr strong{display:block;font-size:20px;color:var(--acc)}
+.rp .pr s{font-size:12px;color:var(--sub)}
+.rp .opt{margin-top:10px;font-size:13px;border-top:1px dashed var(--line);padding-top:8px;display:flex;justify-content:space-between;gap:8px}
+.rp .btn{margin-top:10px}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@media (max-width:560px){h1{font-size:25px}.cards{grid-template-columns:1fr}.ctas{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">가입 없이 3초 · 생일은 이 휴대폰 밖으로 나가지 않아요</div>
+<div class="wrap">
+  <header><div class="logo">🐍</div><div><b>삼뱀일룡 마음상점</b><span>유튜브 · 페이스북 · 인스타그램에서 매일 띠 이야기</span></div></header>
+
+  <section>
+    <span class="kicker">생년월일만 넣으면</span>
+    <h1>우리 가족은 각자<br>어떤 사주 캐릭터일까?</h1>
+    <p class="lead">사주 여덟 글자 중 '나'를 뜻하는 한 글자, 일간을 10가지 캐릭터로 풀었어요. 나, 엄마, 아빠, 친구까지 한 화면에 무료로 놓고 봐요.</p>
+    <div class="flow">
+      <div><i>🗓️</i>생년월일</div><em>→</em>
+      <div><i>👨‍👩‍👧</i>가족 캐릭터<br>무료</div><em>→</em>
+      <div><i>📖</i>설명서 PDF<br>990원</div>
+    </div>
+    <div class="ctas">
+      <a class="btn main" href="#free">무료로 찾기</a>
+      <a class="btn" href="#pay">결제하면 어떻게?</a>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2>다른 사주 사이트와 다른 점</h2>
+    <div class="why">
+      <div><i>🔒</i><span><b>가입도, 전화번호도 안 받아요</b><p>생일은 이 휴대폰 안에서만 계산돼요. 저희 쪽으로 보내지 않아요.</p></span></div>
+      <div><i>👨‍👩‍👧</i><span><b>가족·친구 캐릭터를 한 화면에</b><p>최대 6명까지 넣고 서로 어떤 캐릭터인지 비교해요. 무료예요.</p></span></div>
+      <div><i>🙂</i><span><b>겁주지 않아요</b><p>"올해 큰일 난다" 같은 말, 부적·굿 권유가 없어요. 성격을 쉬운 말로 풀어 줄 뿐이에요.</p></span></div>
+      <div><i>🪙</i><span><b>990원 한 번이면 10가지 전부</b><p>내 것만이 아니라 가족 것까지 다 들어 있어요. 정기 결제 없어요.</p></span></div>
+      <div><i>▶️</i><span><b>매일 새 띠 이야기</b><p>유튜브·페이스북·인스타그램에 날마다 올려요. 들를 때마다 볼 게 있어요.</p></span></div>
+    </div>
+  </section>
+
+  <section id="free">
+    <h2>무료로 우리 가족 캐릭터 찾기</h2>
+    <p class="lead">이름(별명도 좋아요)과 양력 생년월일을 넣어 주세요.</p>
+    <div class="finder">
+      <div id="people"></div>
+      <button class="btn" type="button" id="add">+ 한 사람 더 (최대 6명)</button>
+      <div style="height:8px"></div>
+      <button class="btn main" type="button" id="go">캐릭터 보기</button>
+      <p class="small">음력 생일은 양력으로 바꿔 넣어 주세요. 태어난 시간은 필요 없어요. 계산은 이 휴대폰 안에서만 해요.</p>
+      <div class="results" id="results"></div>
+      <div class="share" id="sharebox" hidden>
+        <button class="btn kakao" type="button" id="shareK">카카오톡으로 보내기</button>
+        <button class="btn" type="button" id="copy">링크 복사</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>여기서 받을 수 있는 것</h2>
+    <div class="cards">
+      <div class="card"><i>🎴</i><b>가족 캐릭터 지도</b><p>최대 6명, 캐릭터와 한 줄 설명</p><span class="won">0원</span></div>
+      <div class="card"><i>📖</i><b>일간 캐릭터 설명서</b><p>10가지 전부 A4 31쪽(캐릭터마다 3쪽 안팎)</p><span class="won">990원</span></div>
+      <div class="card"><i>📜</i><b>여덟 글자 리포트</b><p>나머지 일곱 글자와 10년 흐름까지</p><span class="won">5,000원~</span></div>
+    </div>
+  </section>
+
+  <section id="sample">
+    <h2>10가지 캐릭터 미리 보기</h2>
+    <p class="lead">눌러 보면 설명서 첫 줄이 보여요.</p>
+    <div class="chars" id="chars"></div>
+    <div class="peek" id="peek" aria-live="polite">캐릭터를 하나 눌러 보세요.</div>
+  </section>
+
+  <section id="price">
+    <h2>가격</h2>
+    <div class="price">
+      <div class="plan"><div><b>가족 캐릭터 지도</b><p>생년월일만 넣으면 바로</p></div><span class="won">0원</span></div>
+      <div class="plan hot"><div><b>일간 캐릭터 설명서 · 10가지 전부</b><p>성향·일하는 방식·관계·돈 습관·생활 팁 · PDF</p></div><span class="won">990원</span></div>
+      <div class="plan"><div><b>크몽 베이직 리포트</b><p>여덟 글자와 10년 흐름 · 크몽에서 주문</p></div><span class="won">5,000원~</span></div>
+    </div>
+  </section>
+
+  <section id="pay">
+    <h2>990원 결제하면 이렇게 받아요</h2>
+    <ol class="steps">
+      <li><span>1</span><div><b>[990원 설명서 받기] 누르기</b><p>리틀리 판매 화면으로 넘어가요.</p></div></li>
+      <li><span>2</span><div><b>리틀리에서 결제</b><p>가입 없이 결제할 수 있는지와 결제 수단은 리틀리 화면 안내를 따라요.</p></div></li>
+      <li><span>3</span><div><b>결제가 끝나면 바로 PDF</b><p>사람이 보내는 게 아니라 결제 즉시 자동으로 가요. 10가지가 다 들어 있어요.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="sns">
+    <h2>매일 띠 이야기, 여기서 봐요</h2>
+    <p class="lead">같은 캐릭터 이야기를 채널마다 날마다 올려요.</p>
+    <div class="sns">
+      <a href="https://www.youtube.com/@%EC%82%BC%EB%B1%80%EC%9D%BC%EB%A3%A1%EB%A7%88%EC%9D%8C%EC%83%81%EC%A0%90"><i>▶️</i><span>유튜브<small>삼뱀일룡 마음상점</small></span></a>
+      <a href="https://www.facebook.com/profile.php?id=61594506398921"><i>📘</i><span>페이스북<small>삼뱀일룡 마음상점</small></span></a>
+      <a href="https://www.instagram.com/3snake1dragon/"><i>📷</i><span>인스타그램<small>@3snake1dragon</small></span></a>
+      <a href="https://www.threads.com/@3snake1dragon"><i>🧵</i><span>스레드<small>@3snake1dragon</small></span></a>
+    </div>
+  </section>
+
+  <footer>
+    사주는 태어난 날의 기운을 풀어 쓴 참고용 이야기예요. 중요한 결정은 스스로 판단해 주세요.<br>
+    설명서 글은 AI의 도움을 받아 쓰고 사람이 읽고 고쳤어요. 디지털 파일이라 받은 뒤에는 환불 기준이 달라요(판매처 안내를 따라요).<br>
+    삼뱀일룡 마음상점
+  </footer>
+</div>
+
+<div class="bar"><div class="wrap">
+  <a class="btn" href="#free">무료 캐릭터</a>
+  <a class="btn main" id="buy" href="#pay">990원 설명서 받기</a>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* 990원 판매 화면 주소: 리틀리에 상품을 올린 뒤 여기에 넣기 */
+const BUY_URL = "https://litt.ly/3snake1dragon";
+if (BUY_URL) document.getElementById("buy").href = BUY_URL;
+
+const C=[["직진 대장 큰나무","갑목","방향을 정하면 위로 곧게 자라는 사람."],["어디서든 피는 넝쿨꽃","을목","휘어질 줄 알아서 끝내 꽃을 피우는 사람."],["무대 체질 태양","병화","숨기지 않고 사방을 환하게 비추는 사람."],["밤을 밝히는 촛불","정화","작지만 꺼지지 않는 불로 곁을 비추는 사람."],["든든한 큰 산","무토","흔들리는 자리에서 가장 늦게 움직이는 사람."],["뭐든 키워 내는 텃밭","기토","작은 씨앗을 보고 열매까지 그려 보는 사람."],["원칙주의 강철","경금","선을 긋고, 그 선 안의 사람은 끝까지 지키는 사람."],["반짝이는 보석","신금","작은 차이까지 다듬어 결국 빛을 내는 사람."],["스케일 큰 바다","임수","멀리 보고, 막히면 돌아서라도 결국 닿는 사람."],["촉촉한 감성 이슬비","계수","소리 없이 스며들어 사람과 분위기를 바꾸는 사람."]];
+const NUM="①②③④⑤⑥⑦⑧⑨⑩";
+/* 일간(태어난 날의 천간): 1970-01-01부터 지난 날수 + 7 을 10으로 나눈 나머지(0=갑).
+   지금 사이트 사주 엔진과 1930~2030년 5,270개 날짜를 대조해 모두 같음(11/20). */
+function dayStem(y,m,d){const z=Math.round(Date.UTC(y,m-1,d)/86400000);return ((z+7)%10+10)%10;}
+
+
+/* 리포트 상품: 가격은 희준님이 정한 값(11/20), 크몽도 같은 값으로 맞추기로 함(11/20). k·opt[2]는 바꾸기 전 크몽 가격(기록용, 화면에 안 보임). 신청 주소는 판매처에 올린 뒤 넣기 */
+const R=[
+ {t:"2027 신년운세 · 열두 달",d:"2027 총운과 삼재, 한눈에 보는 12달, 달마다 운세 · A4 10쪽",p:2990,k:7900,opt:["심층 원고 1만 2천 자 더하기",7990,16900]},
+ {t:"사주풀이 리포트 · 재물운·대운",d:"성향·연애·일·재물·대운·15개월 달력 · A4 21쪽",p:1990,k:5000,opt:["심층 원고 2만 자 더하기",13990,29000]},
+ {t:"연애운 · 궁합 점수",d:"1인 연애운 A4 13쪽 / 두 사람 궁합은 아래 선택",p:5990,k:12900,opt:["두 사람 궁합 점수와 5가지 근거",8990,19900]},
+ {t:"평생사주 · 대운 인생 그래프",d:"인생 그래프, 대운 10개 풀이, 초년~말년 흐름 · A4 20쪽",p:19990,k:39000,opt:["심층 원고 2만 자 더하기",29990,59000]}
+];
+const won=n=>n.toLocaleString("ko-KR")+"원";
+if(document.getElementById("rplist"))document.getElementById("rplist").innerHTML=R.map(r=>`<div class="rp"><div class="t"><div><b>${r.t}</b><p>${r.d}</p></div><div class="pr"><strong>${won(r.p)}</strong></div></div><div class="opt"><span>${r.opt[0]}</span><span>${won(r.opt[1])}</span></div><a class="btn main" href="#pay">신청하기</a></div>`).join("");
+
+/* 미리 보기 */
+const box=document.getElementById("chars"),peek=document.getElementById("peek");
+C.forEach((c,i)=>{const b=document.createElement("button");b.className="char";b.type="button";b.setAttribute("aria-pressed","false");b.innerHTML=`${NUM[i]} ${c[0]}<small>${c[1]}</small>`;b.onclick=()=>{box.querySelectorAll(".char").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");peek.textContent=`"${c[2]}"  — ${c[0]} 설명서 첫 줄`};box.appendChild(b)});
+
+/* 가족 찾기 */
+const people=document.getElementById("people");
+function addRow(name="",date=""){
+  if(people.children.length>=6) return;
+  const r=document.createElement("div");r.className="row";
+  r.innerHTML=`<input type="text" placeholder="${people.children.length?"가족·친구":"나"}" maxlength="10" value="${name}"><input type="date" min="1900-01-01" max="2099-12-31" value="${date}"><button class="btn x" type="button" aria-label="지우기">✕</button>`;
+  r.querySelector(".x").onclick=()=>{if(people.children.length>1)r.remove();};
+  people.appendChild(r);
+}
+addRow();addRow();
+document.getElementById("add").onclick=()=>addRow();
+let last=[];
+document.getElementById("go").onclick=()=>{
+  const out=document.getElementById("results");out.innerHTML="";last=[];
+  [...people.children].forEach((r,i)=>{
+    const nm=r.querySelector("input[type=text]").value.trim()||(i?`${i+1}번째 사람`:"나");
+    const v=r.querySelector("input[type=date]").value; if(!v) return;
+    const [y,m,d]=v.split("-").map(Number); const s=dayStem(y,m,d); last.push([nm,s]);
+    const c=C[s]; const e=document.createElement("div");e.className="res";
+    e.innerHTML=`<span class="who">${nm.replace(/</g,"&lt;")}</span><b>${NUM[s]} ${c[0]}</b><q>"${c[2]}"</q>`;out.appendChild(e);
+  });
+  document.getElementById("sharebox").hidden=!last.length;
+  if(!last.length) toast("생년월일을 하나 이상 넣어 주세요");
+};
+
+/* 공유: 휴대폰에서는 공유 창(카카오톡 포함)이 열리고, 컴퓨터에서는 글과 링크를 복사해요.
+   생일은 링크에 넣지 않아요(캐릭터 이름만). */
+const pageUrl=()=>location.href.split("#")[0].split("?")[0];
+function shareText(){
+  const me=last[0]; const others=last.slice(1).map(([n,s])=>`${n}: ${C[s][0]}`).join(", ");
+  return `나는 '${C[me[1]][0]}' 캐릭터래${others?` (${others})`:""}. 너는 뭐 나와? 생일만 넣으면 3초, 가입 없음 👉`;
+}
+async function share(){
+  const data={title:"나는 어떤 사주 캐릭터일까?",text:shareText(),url:pageUrl()};
+  if(navigator.share){try{await navigator.share(data);return;}catch(e){if(e.name==="AbortError")return;}}
+  copy(`${data.text} ${data.url}`,"글과 링크를 복사했어요. 카카오톡 대화창에 붙여 넣으세요");
+}
+function copy(t,msg){navigator.clipboard?navigator.clipboard.writeText(t).then(()=>toast(msg),()=>toast("복사가 안 됐어요")):toast("복사가 안 됐어요");}
+document.getElementById("shareK").onclick=share;
+document.getElementById("copy").onclick=()=>copy(pageUrl(),"링크를 복사했어요");
+function toast(t){const e=document.getElementById("toast");e.textContent=t;e.classList.add("on");setTimeout(()=>e.classList.remove("on"),2200);}
+</script>
+</body>
+</html>
